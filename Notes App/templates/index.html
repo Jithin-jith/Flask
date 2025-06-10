@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Notes App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 40px;
+            color: #333;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #1a73e8;
+        }
+        h2 {
+            margin-top: 30px;
+            color: #444;
+        }
+        .note {
+            background-color: #e8f0fe;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #1a73e8;
+            border-radius: 5px;
+        }
+        a.button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        a.button:hover {
+            background-color: #1669c1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Notes App</h1>
+        
+        <a href="/add" class="button">+ Add a New Note</a>
+
+        <h2>All Notes</h2>
+        {% if notes %}
+            {% for note in notes %}
+                <div class="note">
+                    <strong>{{ note[1] }}</strong><br>
+                    <p>{{ note[2] }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No notes available yet.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
